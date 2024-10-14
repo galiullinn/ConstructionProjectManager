@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
         
         xmlns:cmd="clr-namespace:ConstructionProjectManager.Client.Infrastructure.Commands"
         xmlns:local="clr-namespace:ConstructionProjectManager.Client"
@@ -22,7 +23,13 @@
     <DockPanel>
 
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Файл">
+            <MenuItem>
+                <MenuItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <fa:ImageAwesome Height="13" Icon="Regular_File" Margin="0 0 10 0"/>
+                        <TextBlock Text="Файл"/>
+                    </StackPanel>
+                </MenuItem.Header>
                 <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}"/>
             </MenuItem>
             <MenuItem Header="Помощь">
