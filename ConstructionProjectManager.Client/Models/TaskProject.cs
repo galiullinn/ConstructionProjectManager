@@ -1,6 +1,6 @@
 ﻿namespace ConstructionProjectManager.Client.Models
 {
-    internal class TaskProject
+    public class TaskProject
     {
         public string? Name { get; set; }
         public string? Description { get; set; }

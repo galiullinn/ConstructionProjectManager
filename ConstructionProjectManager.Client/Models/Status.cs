@@ -1,6 +1,6 @@
 ﻿namespace ConstructionProjectManager.Client.Models
 {
-    internal enum Status
+    public enum Status
     {
         Created,
         InProgress,
