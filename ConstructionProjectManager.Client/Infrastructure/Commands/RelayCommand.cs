@@ -1,6 +1,6 @@
 ﻿using ConstructionProjectManager.Client.Infrastructure.Commands.Base;
 
-namespace ConstructionProjectManager.Client.Infrastructure
+namespace ConstructionProjectManager.Client.Infrastructure.Commands
 {
     internal class RelayCommand : Command
     {
