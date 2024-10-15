@@ -1,6 +1,6 @@
 ﻿namespace ConstructionProjectManager.Client.Models
 {
-    public enum Role
+    public enum Position
     {
         Admin,
         ProjectManager,
