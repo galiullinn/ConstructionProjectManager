@@ -23,13 +23,7 @@
     <DockPanel>
 
         <Menu DockPanel.Dock="Top">
-            <MenuItem>
-                <MenuItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <fa:ImageAwesome Height="13" Icon="Regular_File" Margin="0 0 10 0"/>
-                        <TextBlock Text="Файл"/>
-                    </StackPanel>
-                </MenuItem.Header>
+            <MenuItem Header="Файл">
                 <MenuItem Header="Выход" Command="{StaticResource CloseApplicationCommand}"/>
             </MenuItem>
             <MenuItem Header="Помощь">
@@ -37,16 +31,65 @@
             </MenuItem>
         </Menu>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-        </Grid>
+        <TabControl>
+            <TabItem Header="Сотрудники">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="Сотрудники" Grid.Column="0">
+                        <ListBox ItemsSource="{Binding Users}" 
+                                 DisplayMemberPath="Username"
+                                 SelectedItem="{Binding SelectedUser}"
+                                 SelectedIndex="0"/>
+                    </GroupBox>
+                    <GroupBox Header="{Binding SelectedUser.Username, FallbackValue='Проекты'}" 
+                              Grid.Column="1">
+                        <DataGrid ItemsSource="{Binding SelectedUser.Projects}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Номер проекта" 
+                                                    Binding="{Binding Name}" 
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Дата начала" 
+                                                    Binding="{Binding CreatedDate, StringFormat='dd.MM.yyyy'}" 
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Дата завершения" 
+                                                    Binding="{Binding CompletedDate, StringFormat='dd.MM.yyyy'}" 
+                                                    Width="*"/>
+                                <DataGridTextColumn Header="Статус" 
+                                                    Binding="{Binding Status}" 
+                                                    Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проекты">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Задачи">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+            </TabItem>
+        </TabControl>
 
     </DockPanel>
 
